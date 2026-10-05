@@ -26,15 +26,14 @@ Understand large codebases (Flask, LangChain) faster, without reading every file
 .
 ├── README.md                 # This writeup
 ├── mcp-config.example.json   # MCP server entry for Claude Code / VS Code
-├── queries/                  # Cypher queries used in this project
-│   ├── 01-top-complexity.cypher
-│   ├── 02-find-function.cypher
-│   ├── 03-direct-callers.cypher
-│   ├── 04-outgoing-calls.cypher
-│   ├── 05-dead-code.cypher
-│   ├── 06-symbol-references.cypher
-│   └── 07-list-repositories.cypher
-└── screenshots/              # Query results
+└── queries/                  # Cypher queries used in this project
+    ├── 01-top-complexity.cypher
+    ├── 02-find-function.cypher
+    ├── 03-direct-callers.cypher
+    ├── 04-outgoing-calls.cypher
+    ├── 05-dead-code.cypher
+    ├── 06-symbol-references.cypher
+    └── 07-list-repositories.cypher
 ```
 
 ---
@@ -126,14 +125,6 @@ WHERE call_count = 0
 RETURN f.name, f.path, f.line_number
 ORDER BY f.path, f.line_number
 ```
-
----
-
-## Screenshots
-
-![Cyclomatic complexity: top 5 functions](screenshots/cyclomatic-complexity.png)
-
-![url_for call chain trace](screenshots/url-for-call-chain.png)
 
 ---
 
