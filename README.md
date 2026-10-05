@@ -133,14 +133,6 @@ ORDER BY r.name
 
 ---
 
-## Screenshots
-
-![Cyclomatic complexity — top 5 functions](screenshots/cyclomatic-complexity.png)
-
-![url_for call chain trace](screenshots/url-for-call-chain.png)
-
----
-
 ## What Worked
 
 - Graph-based queries are genuinely powerful for tracing multi-hop call chains
