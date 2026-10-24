@@ -32,3 +32,11 @@ Logs go to `outreach/logs/` (git-ignored). The machine must be awake at run time
 
 - The sending job uses Gmail as the sender. Check the first few sends by reading the `emails` collection in the tracker.
 - The runner passes `--allowedTools` so the jobs can run without prompts. Remove a tool from that list to stop it being used.
+
+## Verification rules (current)
+
+- An email must appear verbatim on a public URL the job fetched in that run (company pages, YC, LinkedIn profile visible without login, personal site, X bio, HN profile, GitHub commits).
+- Generic inboxes (careers@, hello@, jobs@, recruiting@, contact@) are allowed under the same rule.
+- Personal addresses are allowed only when the page ties the address to the named person's current role at that company.
+- Onsite and hybrid companies are allowed. Remote-first is preferred.
+- A company is never dropped only because its posted role is engineering. The signal must be about the company.
