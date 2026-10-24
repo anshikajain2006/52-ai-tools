@@ -19,7 +19,7 @@ The tracker is the ArtifactData database behind https://claude.ai/artifact/65p1M
 
 ```
 30 8 * * *   /path/to/52-ai-tools/outreach/run.sh scrape
-30 9 * * 1-5 /path/to/52-ai-tools/outreach/run.sh send
+0 9 * * 1-5 /path/to/52-ai-tools/outreach/run.sh send
 ```
 
 Those lines are 14:00 and 14:30 IST expressed in UTC for a machine on UTC. On an IST machine use `0 14 * * *` and `30 14 * * 1-5`.
