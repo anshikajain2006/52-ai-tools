@@ -14,6 +14,12 @@ log_dir="$repo/outreach/logs"
 mkdir -p "$log_dir"
 stamp="$(TZ=Asia/Kolkata date +%Y-%m-%d_%H%M)"
 
+# Send only on weekdays (IST). Safe to trigger the send job every day.
+if [ "$job" = "send" ] && [ "$(TZ=Asia/Kolkata date +%u)" -ge 6 ]; then
+  echo "$stamp weekend, send skipped" >>"$log_dir/send-skipped.log"
+  exit 0
+fi
+
 cd "$repo"
 claude -p "/outreach-$job" \
   --allowedTools "mcp__Gmail,mcp__Google_Drive,ArtifactData,WebFetch,WebSearch,Bash(curl:*)" \

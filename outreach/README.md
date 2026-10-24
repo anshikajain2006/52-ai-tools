@@ -5,7 +5,7 @@ Two jobs, run headlessly with Claude Code:
 | Job | When | What it does |
 |---|---|---|
 | `scrape` | every day, 14:00 IST | Finds candidates, verifies emails, queues LinkedIn contacts. Never sends. |
-| `send` | Mon to Fri, 14:30 IST | Sends queued emails, then D+3 and D+7 follow-ups in the same threads. |
+| `send` | every day, 14:30 IST (skips Sat and Sun) | Sends queued emails, then D+3 and D+7 follow-ups in the same threads. |
 
 The job prompts live in `.claude/commands/outreach-scrape.md` and `.claude/commands/outreach-send.md`.
 The tracker is the ArtifactData database behind https://claude.ai/artifact/65p1M3Gu93Anff959xyN7m (collections `pending`, `emails`, `linkedin`).
@@ -19,10 +19,12 @@ The tracker is the ArtifactData database behind https://claude.ai/artifact/65p1M
 
 ```
 30 8 * * *   /path/to/52-ai-tools/outreach/run.sh scrape
-0 9 * * 1-5 /path/to/52-ai-tools/outreach/run.sh send
+0 9 * * * /path/to/52-ai-tools/outreach/run.sh send
 ```
 
-Those lines are 14:00 and 14:30 IST expressed in UTC for a machine on UTC. On an IST machine use `0 14 * * *` and `30 14 * * 1-5`.
+Those lines are 14:00 and 14:30 IST expressed in UTC for a machine on UTC. On an IST machine use `0 14 * * *` and `30 14 * * *`.
+
+Both jobs can run every day. `run.sh` exits without sending on Saturday and Sunday, so the send job only sends on weekdays.
 
 Logs go to `outreach/logs/` (git-ignored). The machine must be awake at run time, because cron does not catch up on missed runs.
 

@@ -1,4 +1,4 @@
-Run Anshika Jain's outreach SEND job. Weekdays only. It sends emails only from rows the scrape job already verified. Do not search for new candidates here.
+Run Anshika Jain's outreach SEND job. It must not send on Saturday or Sunday (IST): if today is a weekend, stop and report that it was skipped. It sends emails only from rows the scrape job already verified. Do not search for new candidates here.
 
 Tracker artifact: https://claude.ai/artifact/65p1M3Gu93Anff959xyN7m (ArtifactData database). Collections: "pending" (queued by scrape), "emails" (sent log), "linkedin" (manual queue).
 
