@@ -35,7 +35,8 @@ Logs go to `outreach/logs/` (git-ignored). The machine must be awake at run time
 
 ## Verification rules (current)
 
-- An email must appear verbatim on a public URL the job fetched in that run (company pages, YC, LinkedIn profile visible without login, personal site, X bio, HN profile, GitHub commits).
+- An email must appear verbatim on a public URL the job fetched in that run (company pages, YC, LinkedIn profile visible without login, personal site, X bio, HN profile, GitHub commits, or the company's own HN "Who is hiring" post).
+- Sources: HN "Who is hiring" (October and September 2026 threads), Wellfound, RemoteOK, workatastartup, YC, LinkedIn jobs (no login), funding news and fund portfolios. Product Hunt and We Work Remotely return 403 here.
 - Generic inboxes (careers@, hello@, jobs@, recruiting@, contact@) are allowed under the same rule.
 - Personal addresses are allowed only when the page ties the address to the named person's current role at that company.
 - Onsite and hybrid companies are allowed. Remote-first is preferred.
