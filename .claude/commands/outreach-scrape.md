@@ -20,8 +20,8 @@ TARGET: up to 75 candidates per run, but 75 is a ceiling, not a quota — never 
 
 Work through sources in this order until either 75 is reached or all sources below are exhausted for the day:
 1. HN "Who is hiring" threads, newest first, going back as many months as needed: https://news.ycombinator.com/item?id=49922569 (Oct 2026), https://news.ycombinator.com/item?id=49522897 (Sep 2026), then search "Ask HN: Who is hiring?" for the thread two months back, and so on, one further month each run if the current pool is exhausted. Fetch with curl against the raw item URL (the HTML contains every comment), not WebFetch. For each company post with an email, also check the company's own site for a second contact if the HN poster is a recruiter inbox with no named person.
-2. YC company directory pages for W25/S25/W26/S26 batches (ycombinator.com/companies?batch=X) — fetch with curl, pull company site + LinkedIn links from each listing.
-3. wellfound.com/jobs — fetch with curl (loads directly, no login needed for listings).
+2. Individual YC company pages (ycombinator.com/companies/<slug>) once you have a slug from HN or elsewhere — these render server-side and their HTML has founder LinkedIn links. The batch directory (ycombinator.com/companies?batch=X) and wellfound.com/jobs are both JS-rendered SPAs that return an empty shell to curl — skip fetching them directly; if you need company names from a batch, use WebSearch instead ("YC W26 companies list").
+3. (reserved — see note above on wellfound.com)
 4. TechCrunch / Crunchbase News funding announcements, last 90 days, seed to Series B — use WebSearch, then verify the company's own site.
 5. Sequoia Surge, Accel India, Blume, Peak XV portfolio pages for recent investments.
 
