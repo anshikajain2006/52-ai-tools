@@ -13,6 +13,12 @@ HARD RULES
 - LINKEDIN IS QUEUED EVEN WHEN NO EMAIL IS FOUND. A company with no verified email still gets its contact's LinkedIn queued with email_sent = "no". LinkedIn itself cannot be fetched or rendered by any tool here (it blocks automated access), so "confirmed" means the linkedin.com/in/ URL was found on a public, non-LinkedIn page that ties it to this named person at this company: a YC company page (check for linkedin.com links in the page source), the company's own team/about page, or a personal site / X bio that lists it. Record which of those it came from in the row. Do not scrape LinkedIn.com itself, do not log in, do not send any LinkedIn message.
 - Every company needs ONE specific, nameable signal about the COMPANY (a recent funding round and what it implies, a product launch or market expansion, a hiring pattern, a founding-level hire, or a visible bottleneck). If none surfaces in about 3 minutes, drop it. No generic signals.
 - The posted role does not decide the outcome. An engineering opening is fine: it can still point to a company-level signal. Never drop a company just because its open role is engineering, or because the role is not ops or growth. The pitch is for Founder's Office, Growth or Analytics roles regardless of the posting.
+- ABILITY TO PAY IS A HARD FILTER. Drop any company that cannot plausibly afford a salaried Founder's Office / ops / growth hire. Specifically drop:
+  - Freelance, consulting, or service agencies pitching their own clients' work (the tell: they sell dev/marketing/design services to other businesses rather than building and selling their own product). Irash Tech ("AI-powered digital agency") is the reference case for this — never queue another one like it.
+  - Any posting whose own compensation is commission-only, equity-only, unpaid, or explicitly "freelance" / "contract, non-exclusive" with no base pay.
+  - Companies with no signal of funding or revenue at all (no raise, no stated ARR/profitability, no YC batch, nothing) — a bare "we're hiring" with zero financial signal is not enough on its own.
+  - A generic team address with no personal name AND no funding/stage signal together is a double red flag — drop it.
+  Keep: pre-seed/seed/Series A/B companies with a disclosed raise or YC batch, profitable companies, and any company whose posting discloses real salaried compensation (a dollar figure or range, not "equity only" or "commission").
 
 Remote-first is preferred, but onsite or hybrid companies are fine.
 
@@ -34,4 +40,4 @@ WHAT TO WRITE
 
 Finish with exactly two lines:
 Queued email: X to [companies] | LinkedIn: Y contacts
-Dropped: Z companies, reasons (no verified email, no signal, edtech, Lumiere, duplicate, LinkedIn unconfirmed)
+Dropped: Z companies, reasons (no verified email, no signal, edtech, Lumiere, duplicate, LinkedIn unconfirmed, agency/cannot pay)
